@@ -5,12 +5,12 @@
   "AppIdentifier": "com.telerik.NinjaRunTrackerApp",
   "DisplayName": "NinjaRunTracker App",
   "Author": "",
-  "Description": "",
+  "Description": "NinjaRunTracker App",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",
-	"2"
+    "2"
   ],
   "iOSBackgroundMode": [],
   "WP8TileTitle": "",
