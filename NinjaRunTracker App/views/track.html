@@ -1,0 +1,10 @@
+<div data-role="view" data-title="Track" data-layout="main" data-model="APP.models.track">
+    <h1 data-bind="html: title"></h1>
+    <div data-role="fieldcontain" class="ui-hide-label">
+        <label for="track_id">Track ID/Name:</label>
+    </div>
+    <button data-role="button" id="startTracking_start" data-bind="click: startTracking">Start Tracking</button>
+    <button data-role="button" id="startTracking_stop">Stop Tracking</button>
+    
+    <div id="googleMap" style="width:450px;height:350px;"></div>
+</div>
