@@ -18,19 +18,20 @@
 
             }),
             track: kendo.observable({
-                title: 'Track',
-                startTracking: function () {
+                title: 'Track'
+            }),
+            history:  kendo.observable({
+                title: 'History',
+                showMap: function () {
                     var mapProp = {
                         center: new google.maps.LatLng(51.508742, -0.120850),
                         zoom: 5,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     };
+                    console.dir(document.getElementById("googleMap"));
                     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-                    google.maps.event.addDomListener(window, 'load', initialize);
-                }
-            }),
-            history: {
-                title: 'History',
+                    google.maps.event.addDomListener(window, 'load', initialize); 
+                },
                 ds: new kendo.data.DataSource({
                     data: [{
                         id: 1,
@@ -42,11 +43,8 @@
                         id: 3,
                         name: 'John'
                     }]
-                }),
-                alert: function (e) {
-                    alert(e.data.name);
-                }
-            }
+                })
+            })
         }
     };
 
