@@ -1,8 +1,10 @@
 <div data-role="view" data-title="Track" data-layout="main" data-model="APP.models.track">
     <h1 data-bind="html: title"></h1>
+    <p id="startTracking_status"></p>
     <div data-role="fieldcontain" class="ui-hide-label">
         <label for="track_id">Track ID/Name:</label>
+        <input type="text" name="track_id" id="track_id" placeholder="Workout ID/Name"/>
     </div>
-    <button data-role="button" id="startTracking_start">Start Tracking</button>
-    <button data-role="button" id="startTracking_stop">Stop Tracking</button>
+    <button data-role="button" id="startTracking_start" data-bind="click: startTracking">Start Tracking</button>
+    <button data-role="button" id="startTracking_stop"  data-bind="click: stopTracking">Stop Tracking</button>
 </div>
