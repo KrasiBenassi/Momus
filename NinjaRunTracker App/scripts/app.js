@@ -7,12 +7,15 @@
             home: kendo.observable({
                 title: 'Home',
                 checkConnection: function () {
+                    var eventHandler = new EventHandler();
+                    eventHandler.run();
                     if (navigator.network.connection.type == Connection.NONE) {
                         $("#home_network_button").text('No Internet Access');
                     } else {
                         $("#home_network_button").text('Internet access enabled');
                     }
-                }
+                },
+
             }),
             track: kendo.observable({
                 title: 'Track',
@@ -50,7 +53,6 @@
     // this function is called by Cordova when the application is loaded by the device
     document.addEventListener('deviceready', function () {
         navigator.splashscreen.hide();
-
         app = new kendo.mobile.Application(document.body, {
             transition: 'slide',
             skin: 'flat',
@@ -60,4 +62,32 @@
     }, false);
 
 
+    //Events API
+    function EventHandler() {}
+
+    EventHandler.prototype = {
+        run: function () {
+            var that = this;
+
+            document.addEventListener("online",
+                function () {
+                    that._onOnline.apply(that, arguments);
+                },
+                false);
+
+            document.addEventListener("offline",
+                function () {
+                    that._onOffline.apply(that, arguments);
+                },
+                false);
+        },
+
+        _onOnline: function () {
+            $("#network-status").html('Online');
+        },
+
+        _onOffline: function () {
+            $("#network-status").html('Offline');
+        }
+    }
 }());
