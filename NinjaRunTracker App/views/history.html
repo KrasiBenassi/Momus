@@ -1,9 +1,10 @@
 <div data-role="view" data-title="History" data-layout="main" data-model="APP.models.history">
   <ul data-role="listview" data-style="inset" data-template="contactsTemplate" data-bind="source: ds"></ul>
+    <div id="googleMap" style="width:100%;height:350px;"></div>
 </div>
 
 <!-- this is the template used by the listview. template items are automatically
      wrapped in an <li> by Kendo UI Mobile -->
 <script type="text/x-kendo-template" id="contactsTemplate">
-  <a data-bind="click: alert">#: data.name #</a>
+  <a data-bind="click: showMap">#: data.name #</a>
 </script>
