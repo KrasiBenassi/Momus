@@ -82,7 +82,8 @@
                     for (i = 0; i <currentData.length; i++) {
                         trackCoords.push(new google.maps.LatLng(currentData[i].coords.latitude, currentData[i].coords.longitude));
                     }
-
+                    
+                    currentData = null;
                     // Plot the GPS entries as a line on the Google Map
                     var trackPath = new google.maps.Polyline({
                         path: trackCoords,
