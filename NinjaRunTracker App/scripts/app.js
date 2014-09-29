@@ -1,6 +1,6 @@
 (function () {
     var app;
-    var track_id = ''; // Name/ID of the exercise
+    var track_id = null; // Name/ID of the exercise
     var watch_id = null; // ID of the geolocation
     var tracking_data = []; // Array containing GPS position objects
     var tracks_recorded = 0;
@@ -43,16 +43,26 @@
 
                     // Tidy up the UI
                     track_id = $("#track_id").val();
+                    
+                    if (track_id) {
+                        
+                        $("#track_id").hide();
 
-                    $("#track_id").hide();
+                        $("#startTracking_status").html("Tracking workout: <strong>" + track_id + "</strong>");
+                    }
+                    else {
+                        
+                        $("#startTracking_status").html("You must enter some ID or name") 
+                    }
 
-                    $("#startTracking_status").html("Tracking workout: <strong>" + track_id + "</strong>");
+                   
                 },
                 stopTracking: function () {
 
                     navigator.geolocation.clearWatch(watch_id);
 
                     window.localStorage.setItem(track_id, JSON.stringify(tracking_data));
+                    
 
                     watch_id = null;
                     tracking_data = [];
@@ -61,6 +71,7 @@
                     $("#track_id").val("").show();
 
                     $("#startTracking_status").html("Stopped tracking workout: <strong>" + track_id + "</strong>");
+                    navigator.notification.vibrate(500);
                 }
             }),
             history: kendo.observable({
