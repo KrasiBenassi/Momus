@@ -62,6 +62,7 @@
                     navigator.geolocation.clearWatch(watch_id);
 
                     window.localStorage.setItem(track_id, JSON.stringify(tracking_data));
+                    
 
                     watch_id = null;
                     tracking_data = [];
@@ -70,6 +71,7 @@
                     $("#track_id").val("").show();
 
                     $("#startTracking_status").html("Stopped tracking workout: <strong>" + track_id + "</strong>");
+                    navigator.notification.vibrate(500);
                 }
             }),
             history: kendo.observable({
