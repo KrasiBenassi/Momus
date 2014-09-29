@@ -84,6 +84,8 @@
                     }
                     
                     currentData = null;
+                    
+                    
                     // Plot the GPS entries as a line on the Google Map
                     var trackPath = new google.maps.Polyline({
                         path: trackCoords,
