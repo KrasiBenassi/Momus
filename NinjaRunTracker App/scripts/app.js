@@ -94,9 +94,6 @@
                         trackCoords.push(new google.maps.LatLng(currentData[i].coords.latitude, currentData[i].coords.longitude));
                     }
                     
-                    currentData = null;
-                    
-                    
                     // Plot the GPS entries as a line on the Google Map
                     var trackPath = new google.maps.Polyline({
                         path: trackCoords,
@@ -130,8 +127,9 @@
                         total_time_ms = end_time - start_time;
                         total_time_s = total_time_ms / 1000;
 
-                        final_time_m = Math.floor(total_time_s / 1000);
+                        final_time_m = Math.floor(total_time_s / 60);
                         final_time_s = total_time_s - (final_time_m * 60);
+                        final_time_s = final_time_s.toFixed(0);
 
                         //calculate distance
                         total_km = 0;
@@ -148,8 +146,8 @@
                         total_km_rounded = total_km.toFixed(2);
 
                         $("#history_tracklist")
-                            .append("<li><a><strong>" + key +
-                                "</strong>:<br/>Duration=" + final_time_m + " min and " + final_time_s + " sec" + "<br/>Distance: " + total_km_rounded + " km</a></li>");
+                            .append("<li><strong>" + key +
+                                "</strong>:<br/>Duration=" + final_time_m + " min and " + final_time_s + " sec" + "<br/>Distance: " + total_km_rounded + " km</li>");
 
 
                     }
