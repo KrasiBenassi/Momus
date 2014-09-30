@@ -1,8 +1,8 @@
 button{
-    width: 155px;
+    width: 48%;
     height: 150px;
 }
-#home-network-button{
+.home-button{
     width: 100%;
     height: 50px;
 }
