@@ -15,9 +15,9 @@
                                            var eventHandler = new EventHandler();
                                            eventHandler.run();
                                            if (navigator.network.connection.type == Connection.NONE) {
-                                               $("#home_network_button").text('No Internet Access');
+                                               $("#home-network-button").text('No Internet Access');
                                            } else {
-                                               $("#home_network_button").text('Internet access enabled');
+                                               $("#home-network-button").text('Internet access enabled');
                                            }
                                        },
                                        clearLocalStorage: function () {
@@ -42,14 +42,14 @@
                                                 });
 
                                             // Tidy up the UI
-                                            track_id = $("#track_id").val();
+                                            track_id = $("#track-id").val();
                     
                                             if (track_id) {
-                                                $("#track_id").hide();
+                                                $("#track-id").hide();
 
-                                                $("#startTracking_status").html("Tracking workout: <strong>" + track_id + "</strong>");
+                                                $("#start-tracking-status").html("Tracking workout: <strong>" + track_id + "</strong>");
                                             } else {
-                                                $("#startTracking_status").html("You must enter some ID or name") 
+                                                $("#start-tracking-status").html("You must enter some ID or name") 
                                             }
                                         },
                                         stopTracking: function () {
@@ -61,9 +61,9 @@
                                             tracking_data = [];
 
                                             // Tidy up the UI
-                                            $("#track_id").val("").show();
+                                            $("#track-id").val("").show();
 
-                                            $("#startTracking_status").html("Stopped tracking workout: <strong>" + track_id + "</strong>");
+                                            $("#start-tracking-status").html("Stopped tracking workout: <strong>" + track_id + "</strong>");
                                             navigator.notification.vibrate(500);
                                         }
                                     }),
@@ -78,7 +78,7 @@
                                                   mapTypeId: google.maps.MapTypeId.ROADMAP
                                               };
 
-                                              var map = new google.maps.Map(document.getElementById("googleMap"), myOptions);
+                                              var map = new google.maps.Map(document.getElementById("google-map"), myOptions);
                     
                                               var trackCoords = [];
 
@@ -101,9 +101,9 @@
                                           loadHistory: function () {
                                               tracks_recorded = window.localStorage.length;
 
-                                              $("#tracks_recorded").html("<strong>" + tracks_recorded + "</strong> workout(s) recorded");
+                                              $("#tracks-recorded").html("<strong>" + tracks_recorded + "</strong> workout(s) recorded");
 
-                                              $("#history_tracklist").empty();
+                                              $("#history-tracklist").empty();
 
                                               for (i = 0; i < tracks_recorded; i++) {
                                                   var key = window.localStorage.key(i);
@@ -112,7 +112,6 @@
                                                   data = JSON.parse(data);
 
                                                   //calculate duration
-                        
                                                   var final_time_m = calculateDuration(data).finalMinutes;
                                                   var final_time_s = calculateDuration(data).finalSeconds;
 
@@ -121,7 +120,7 @@
 
                                                   total_km_rounded = total_km.toFixed(2);
 
-                                                  $("#history_tracklist")
+                                                  $("#history-tracklist")
                                                       .append("<li><strong>" + (i + 1) + "." + key +
                                                               "</strong>:<br/>Duration=" + final_time_m + " min and " + final_time_s + " sec" + "<br/>Distance: " + total_km_rounded + " km</li>");
                                               }
