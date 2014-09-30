@@ -1,6 +1,8 @@
 <div data-role="view" data-title="History" data-layout="main" data-model="APP.models.history">
-    <a id="load-history-button" data-role="button" data-align="right" data-bind="click: loadHistory">Refresh</a>
-    <a id="load-map-button" data-role="button" data-align="left" data-bind="click: showMap">Show map</a>
+    <h2 data-bind="html: title"></h2>
+    
+    <a id="load-history-button" class="history-button" data-role="button" data-align="right" data-bind="click: loadHistory">Refresh</a>
+    <a id="load-map-button" class="history-button" data-role="button" data-align="left" data-bind="click: showMap">Show map</a>
         
     <p id="tracks-recorded"></p>
     <ul data-role="listview" id="history-tracklist">
