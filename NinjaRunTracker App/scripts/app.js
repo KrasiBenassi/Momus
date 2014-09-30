@@ -132,12 +132,15 @@
     // this function is called by Cordova when the application is loaded by the device
     document.addEventListener('deviceready', function () {
         navigator.splashscreen.hide();
+        var eventHandler = new EventHandler();
+        eventHandler.run();
         app = new kendo.mobile.Application(document.body, {
                                                transition: 'slide',
                                                skin: 'flat',
                                                initial: 'views/home.html'
                                            });
     }, false);
+    
     
     function calculateDuration(data) {
         start_time = new Date(data[0].timestamp).getTime();
